@@ -1,0 +1,43 @@
+name: session
+
+options:
+  bundleIdPrefix: dev.jano.session
+  usesTabs: false
+  indentWidth: 4
+  tabWidth: 4
+  createIntermediateGroups: true
+  deploymentTarget:
+    iOS: "13.2"
+
+settings:
+    CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED: YES
+
+targets:
+
+ Session:
+   platform: iOS
+   scheme:
+      testTargets:
+         - SessionTests
+   settings:
+      CURRENT_PROJECT_VERSION: 1
+      INFOPLIST_FILE: targets/main/Info.plist
+      IPHONEOS_DEPLOYMENT_TARGET: 14.4
+      PRODUCT_BUNDLE_IDENTIFIER: dev.jano.session
+      PRODUCT_NAME: Session
+   sources: 
+      - sources/main
+   type: framework
+
+ SessionTests:
+   dependencies:
+      - target: Session
+   platform: iOS
+   settings:
+      INFOPLIST_FILE: targets/tests/Info.plist
+      IPHONEOS_DEPLOYMENT_TARGET: 14.4
+      PRODUCT_BUNDLE_IDENTIFIER: dev.jano.tests
+      TEST_HOST:
+   sources:
+      - sources/tests
+   type: bundle.unit-test
