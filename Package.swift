@@ -1,14 +1,13 @@
-// swift-tools-version:5.3
+// swift-tools-version:6.1
 import PackageDescription
 
 let package = Package(
     name: "session",
     platforms: [
-        .iOS(.v14)
+        .iOS(.v13)
     ],
     products: [
-        .library(name: "SessionStatic", type: .static, targets: ["Session"]),
-        .library(name: "SessionDynamic", type: .dynamic, targets: ["Session"])
+        .library(name: "Session", targets: ["Session"])
     ],
     dependencies: [
     ],
